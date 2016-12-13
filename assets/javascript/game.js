@@ -68,33 +68,38 @@
     var question; 
 
     // Load the question and options, etc. 
-    function nextQuestion() {
-        question = questions[currQuery];
-        $('#query').text(question.question)
+    function nextQuestion(q) {
+        debugger;
+        $('#query').html('');
+        $('#buttons').html('');
+
+        question = questions[q];
+        $('#query').text(question.question);
         for (var i = 0; i<question.choices.length; i++) {
             $('#buttons').append('<br><input type="radio" name="ask" value=' + i + 
                                  ' class="radiobtn">' + question.choices[i]); 
         }
     }
 
-    nextQuestion();
+    nextQuestion(currQuery);
 
-    // $("input[name='ask']").change(function(){
     $('.radiobtn').change(function(){
-
+        debugger;
         var name = $( "input[name='ask']:checked" ).val();
         if (name == question.correctChoice){
             $('#container').css('background-image', 'url(' + question.image + ')');
             $('#query').text("Correct!");
-            $('#buttons').empty();            
+            //$('#buttons').empty();            
         }else {
             alert('Incorrect!  Want to try again?');
         }
         setTimeout('',3000);
-        if (currQuery<questions.length){ 
+
+        if (currQuery < questions.length) {
             currQuery++;
-            nextQuestion(); 
-        } else {
-            return false; 
-        }
+            nextQuestion(currQuery);
+        }    
+
+        return false; 
     });
+
