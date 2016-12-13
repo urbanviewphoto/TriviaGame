@@ -1,0 +1,67 @@
+html, body {
+	height: 600px;
+	width: 800px;
+}
+
+body {
+	font-family:'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+	font-size: 20px;
+}
+
+h1 {
+	font-family: 'Georgia', Times, 'Times New Roman', serif;
+	font-size: 20px;
+	font-weight: bold;
+	/*padding: 20px;*/
+}
+
+p {
+ 	font-size: 20px;
+ 	width: 200%;
+ }
+
+div {
+	/*padding: 0px 2px 0px 2px;*/
+/*	margin-top: 10px;
+	margin-left: 10px;*/
+}
+
+.btn {
+	width: auto;
+	height: auto;
+	float: left;
+	padding: 10px 10px 10px 10px;
+}
+
+.img {
+	height: 50px;
+	width: 50px;
+}
+
+#title {
+	/*background-color: chocolate;*/
+	color: ivory;
+	width: 30%;
+	margin: auto;
+}
+
+#trivia {
+	color: ivory;
+	width: 70%;
+	margin: auto;
+}
+
+.radiobtn {
+	margin-left: 33%;
+}
+
+#container {
+	height: 600px;
+	width: 800px;
+	background-image: url("../images/AsburyOnTheLake.jpg");
+	background-size: 800px 600px;
+	border-style: solid;
+	border-color: black;
+	border-width: 2px;
+}
+

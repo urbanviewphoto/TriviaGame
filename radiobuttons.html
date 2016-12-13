@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>radio buttons</title>
+</head>
+<body>
+<form action="">
+    <div class="field">
+        <p>Question: What is Joey's name?</p>
+        <input type="radio" name="questionOne" value="molly"> Molly<br>
+        <input type="radio" name="questionOne" value="joey"> Joey<br>
+        <input type="radio" name="questionOne" value="other"> Other
+    </div>
+
+</form>
+<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script type="text/javascript">
+    var questions = [
+        {
+            question: "what's joey's name",
+            choices: ["nuno", "frank", "joey"],
+            correctChoice: 2
+        },
+        {
+            question: "what's nuno's name",
+            choices: ["nuno", "frank", "joey"],
+            correctChoice: 0
+        },
+        {
+            question: "what's frank's name",
+            choices: ["nuno", "frank", "joey"],
+            correctChoice: 1
+        }
+    ];
+
+    var currentQuestion = 0; //start at the first index of the questions array
+
+    var question = questions[currentQuestion]; //choose the first question
+    
+    //display the first question on the page
+    $('body').append(question.question);
+
+    for (var i=0; i<question.choices.length; i++){
+        var button = $('<button>').text(question.choices[i]).attr('data-val', i);
+        $('body').append(button);
+    }
+
+    $('button').on('click', function(){
+        if ($(this).data('val') == question.correctChoice){
+            alert('correct');
+        }else{
+            alert('loser');
+        }
+
+        currentQuestion++; //increment to the next question
+    })
+
+
+    // for (var i=0; i<questions.length; i++){ //looping over questions
+    //     console.log(questions[i].question) //displaying the question
+    //     var choices = questions[i].choices; //getting the choices for that question
+    //     for (var j=0; j<choices.length; j++){//looping over the choices
+    //         console.log(choices[j]); //displaying each choice
+    //     }
+    // }
+
+    $("input[name='questionOne']").change(function(){
+        var name = $( "input[name='questionOne']:checked" ).val();
+        if (name == 'joey'){
+            console.log('correct');
+        }else {
+            console.log('incorrect')
+        }
+    });
+
+</script>
+
+</body>
+</html>
