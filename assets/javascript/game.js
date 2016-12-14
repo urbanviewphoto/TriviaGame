@@ -124,20 +124,21 @@
         var currQuery = 0;
         var answer    = ""; 
         var question;
-        var number    = 10;
+        var number    = 11;
         var correct   = 0;
         var incorrect = 0;   
         nextQuestion(currQuery);
     })
 
     function run() {
-        number = 10;
+        number = 11;
         counter = setInterval(decrement,1000);
     }
 
     function decrement() {
         number--; 
-        console.log(number);
+        $("#counter").html('Time to guess: ' + number).css('color', question.text); 
+        //console.log(number);
         if (number === 0) {
             stop();
         }
