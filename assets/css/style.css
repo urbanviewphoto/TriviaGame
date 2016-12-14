@@ -1,6 +1,6 @@
 html, body {
-	height: 600px;
-	width: 800px;
+	height: 650px;
+	width: 1000px;
 }
 
 body {
@@ -17,49 +17,37 @@ h1 {
 
 p {
  	font-size: 20px;
- 	width: 200%;
+ 	width: 180%;
  }
 
-div {
-	/*padding: 0px 2px 0px 2px;*/
-/*	margin-top: 10px;
-	margin-left: 10px;*/
-}
-
-.btn {
-	width: auto;
-	height: auto;
-	float: left;
-	padding: 10px 10px 10px 10px;
-}
-
-.img {
-	height: 50px;
-	width: 50px;
-}
+ #buttons {
+ 	color: black;
+ }
 
 #title {
-	/*background-color: chocolate;*/
-	color: ivory;
-	width: 30%;
+	color: black;
+	width: 25%;
 	margin: auto;
 }
 
 #trivia {
-	color: ivory;
+	color: black;
+	font-style: bold;
 	width: 70%;
 	margin: auto;
 }
 
 .radiobtn {
+	width: auto;
+	height: auto;	
 	margin-left: 33%;
 }
 
 #container {
-	height: 600px;
-	width: 800px;
+	height: 650px;
+	width: 1000px;
 	background-image: url("../images/AsburyOnTheLake.jpg");
-	background-size: 800px 600px;
+	background-size: 1000px 650px;
 	border-style: solid;
 	border-color: black;
 	border-width: 2px;
