@@ -95,7 +95,7 @@
                                  ' class="radiobtn">' + question.choices[i]); 
         }
         $('#buttons').css('color', question.text);
-        //run();
+        run();
     }
 
     function checkCounter(){
@@ -131,31 +131,30 @@
     })
 
     function run() {
-         counter = setInterval(decrement,1000);
+        number = 10;
+        counter = setInterval(decrement,1000);
     }
 
     function decrement() {
         number--; 
+        console.log(number);
         if (number === 0) {
-            stop(); 
+            stop();
         }
-        timesUp();
     }
 
     function stop() {
         clearInterval(counter);
-    }
-
-    function timesUp(){
-            $('#query').text("Times up! The correct answer is " + answer + "!").css('color', question.text);
-            $('#buttons').empty();  
-            incorrect++;          
-            setTimeout(checkCounter,3000);
+        $('#query').text("Times up! The correct answer is " + answer + "!").css('color', question.text);
+        $('#buttons').empty();  
+        incorrect++;          
+        setTimeout(checkCounter,3000);        
     }
 
     nextQuestion(currQuery); 
 
     $(document).on('change', '.radiobtn', function(){
+        clearInterval(counter);
         var name = $( "input[name='ask']:checked" ).val();
         if (name == question.correctChoice){
             $('#container').css('background-image', 'url(' + question.image + ')'); 
