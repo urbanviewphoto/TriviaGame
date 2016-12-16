@@ -20,6 +20,14 @@ p {
  	width: 180%;
  }
 
+ #counter {
+ 	color: black;
+ 	width: 80%;
+	/*border-style: solid;
+	border-color: black;
+	border-width: 2px; */	
+ }
+
  #buttons {
  	color: black;
  }

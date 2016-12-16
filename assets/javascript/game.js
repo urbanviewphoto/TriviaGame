@@ -28,7 +28,7 @@
             choices: ["Coney Island, NY","Myrtle Beach, SC","Long Branch, NJ","Atlantic City, NJ"],
             correctChoice: 1,
             image: "assets/images/AsburyParkCarousel.jpg",
-            text: "cyan"
+            text: "blue"
         }, 
          {
             question: "What famous Jersey Girl recorded a video at Asbury Park Convention Hall in 1979?",
@@ -63,14 +63,14 @@
             choices: ["Boston Red Sox", "NY Mets", "Phillies","NY Yankees"],
             correctChoice: 3,
             image: "assets/images/yankees.jpg",
-            text: "cyan"
+            text: "red"
         },
         {
             question: "What is the name of the famous grinning figure Asbury Park is known for?",
             choices: ["Tillie", "George", "Juicy","Fred"],
             correctChoice: 0,
             image: "assets/images/tillie.jpg",
-            text: "crimson"
+            text: "red"
         }               
     ]
 
@@ -83,12 +83,14 @@
 
     // Load the question and options, etc. 
     function nextQuestion(q) {
+        $('#counter').html('<br>');
         $('#query').html('');
         $('#buttons').html('');
 
         question = questions[q];
         answer   = question.choices[question.correctChoice]; 
         $('#title').css('color', question.text);
+        $('#counter').css('color', question.text).css('border-color', question.text);
         $('#query').text(question.question).css('color', question.text);
         for (var i = 0; i<question.choices.length; i++) {
             $('#buttons').append('<br><input type="radio" name="ask" value=' + i + 
@@ -103,7 +105,8 @@
             currQuery++
             nextQuestion(currQuery); 
         } else {
-            $('#title').css('color', 'white'); 
+            $('#title').css('color', 'white');
+            $('#counter').css('border-color', 'white'); 
             $('#query').html('Correct answers   = ' + correct + '<br>' + 
                              'Incorrect answers = ' + incorrect + '<br><br>').css('color', 'white');
             var msg = "";
@@ -137,8 +140,9 @@
 
     function decrement() {
         number--; 
-        $("#counter").html('Time to guess: ' + number).css('color', question.text); 
-        //console.log(number);
+        $("#counter").html('Time to guess: ' + number).css('color', question.text);
+        // $("#counter").css('border-color', question.text); 
+        
         if (number === 0) {
             stop();
         }
@@ -146,6 +150,7 @@
 
     function stop() {
         clearInterval(counter);
+        $('#counter').empty()     
         $('#query').text("Times up! The correct answer is " + answer + "!").css('color', question.text);
         $('#buttons').empty();  
         incorrect++;          
@@ -156,13 +161,14 @@
 
     $(document).on('change', '.radiobtn', function(){
         clearInterval(counter);
+        $('#counter').empty();
         var name = $( "input[name='ask']:checked" ).val();
         if (name == question.correctChoice){
             $('#container').css('background-image', 'url(' + question.image + ')'); 
-            $('#query').text("Correct!").css('color', question.text); 
+            $('#query').html('<br>Correct!').css('color', question.text); 
             correct++;          
         }else {
-            $('#query').text("Incorrect! The correct answer is " + answer + "!").css('color', question.text);
+            $('#query').html('<br>').text("Incorrect! The correct answer is " + answer + "!").css('color', question.text);
             incorrect++; 
         }      
         $('#buttons').empty();
